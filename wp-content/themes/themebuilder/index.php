@@ -1,55 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<?php
+/**
+ * The main template file
+ *
+ * This is the most generic template file in a WordPress theme
+ * and one of the two required files for a theme (the other being style.css).
+ * It is used to display a page when nothing more specific matches a query.
+ * E.g., it puts together the home page when no home.php file exists.
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package WordPress
+ * @subpackage Twenty_Twenty_One
+ * @since Twenty Twenty-One 1.0
+ */
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+get_header(); ?>
 
-    <!-- De onderstaande regel code gebruikt de WordPress-functies bloginfo() welke de naam en de omschrijving van de applicatie ophaalt -->
-    <title><?php bloginfo('name'); ?> - <?php bloginfo('description'); ?></title>
+<?php if ( is_home() && ! is_front_page() && ! empty( single_post_title( '', false ) ) ) : ?>
+	<header class="page-header alignwide">
+		<h1 class="page-title"><?php single_post_title(); ?></h1>
+	</header><!-- .page-header -->
+<?php endif; ?>
 
-    <!-- De onderstaande regel code gebruikt de WordPress-functie get_stylesheet_uri() om de URL van het huidige thema's style.css-bestand op te halen en dit te koppelen aan het stijlblad van je website. -->
-    <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
-    
-</head>
+<?php
+if ( have_posts() ) {
 
-<body>
-    <header>
+	// Load posts loop.
+	while ( have_posts() ) {
+		the_post();
 
-        <!-- De onderstaande regel code gebruikt de WordPress-functie  -->
-        <h1><a href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a></h1>
-        <nav>
+		get_template_part( 'template-parts/content/content', get_theme_mod( 'display_excerpt_or_full_post', 'excerpt' ) );
+	}
 
-            <!-- De onderstaande regel code gebruikt de WordPress-functie  -->
-            <?php
-                 wp_nav_menu(array('theme_location' => 'primary', 'container' => 'nav', 'container_class' => 'site-navigation'));
-            ?>
-        </nav>
-    </header>
+	// Previous/next page navigation.
+	twenty_twenty_one_the_posts_navigation();
 
-    <main>
-    <!-- De onderstaande regels code kijkt of en hoeveel posts er zijn en plaatst deze op de pagina.  -->
-    <?php
-        if (have_posts()) :
-            while (have_posts()) :
-                the_post();
-                ?>
-                <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                    <h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                    <div class="entry-content">
-                        <?php the_content(); ?>
-                    </div>
-                </article>
-                <?php
-            endwhile;
-        else :
-            ?>
-            <p>Geen berichten gevonden.</p>
-        <?php endif; ?>
-    </main>
+} else {
 
-    <footer>
-            <!-- Voeg hier je footerinhoud toe -->
-    </footer>
-</body>
-</html>
+	// If no content, include the "No posts found" template.
+	get_template_part( 'template-parts/content/content-none' );
+
+}
+
+get_footer();
