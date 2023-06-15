@@ -4,6 +4,81 @@ Author: Chris Groen
 Description: Ik heb dit thema zelf gebouwd.
 Version: 2.0
 */
-.entry-content{
-    background-color: green;
+
+/* Reset standaardstijlen */
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+/* Basisstijlen */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.wp-block-cover {
+    display: flex;
+    justify-content: center;
+}
+
+/* Headerstijlen */
+header {
+    background-image: url("img/backgroundwallpaper.jpg");
+    opacity: .5;
+    padding: 20px;
+}
+
+.site-header {
+    background-image: url("img/backgroundwallpaper.jpg");
+    opacity: .2;
+    padding: 20px;
+}
+
+.site-header .site-logo {
+    margin-right: 20px;
+}
+
+.site-header .site-title {
+    font-size: 24px;
+    color: #333333;
+}
+
+/* Navigatiestijlen */
+.main-navigation ul {
+    list-style: none;
+}
+
+.main-navigation li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.main-navigation li a {
+    color: #333333;
+    text-decoration: none;
+}
+
+/* Hoofdinhoudsstijlen */
+.site-content {
+    margin-bottom: 40px;
+}
+
+/* Footerstijlen */
+.site-footer {
+    background-color: #f8f8f8;
+    padding: 20px;
+    text-align: center;
+}
+
+.site-footer a {
+    color: #333333;
+    text-decoration: none;
 }
