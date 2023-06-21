@@ -1,20 +1,23 @@
+/*
+Theme Name: Owntheme
+Author: Chris Groen
+Description: Dit is mijn eigen thema die ik helemaal zelf heb gemaakt.
+Version: 2.0
+*/
+
 /* Reset standaardstijlen */
-h1 {
-    display: flex;
-    justify-content: center;
-    font-size: 24px;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 /* Basisstijlen */
-html {
-    width: 100%;
-    box-sizing: border-box;
-}
-
 body {
     font-family: Arial, sans-serif;
     font-size: 16px;
     line-height: 1.5;
+    background-color: #F3F6FB;
 }
 
 .container {
@@ -25,56 +28,91 @@ body {
 
 /* Headerstijlen */
 header {
-    background-image: url("img/backgroundwallpaper.jpg");
-    background-size: cover;
-    background-position: center;
-    opacity: 0.8;
-    padding: 50px;
-    margin: 0;
+    background-color: #EF9536;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 20px;
 }
 
-.site-header .site-title {
-    color: rgba(255, 255, 255, 1);
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    margin: 0;
-    position: relative;
-    z-index: 1;
+a {
+    font-weight: bold;
 }
 
-/* Navigatiestijlen */
-.menu {
+h1 a {
+    color: #fff;
+    text-decoration: none;
+}
+
+h2 {
     display: flex;
     justify-content: center;
 }
 
-.main-navigation ul {
+/* Navigatiestijlen */
+nav {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+nav ul {
     list-style: none;
 }
 
-.main-navigation li {
+nav ul li {
     display: inline-block;
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
-.main-navigation li a {
-    color: #333333;
+nav ul li a {
+    color: #fff;
     text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Hoofdinhoudsstijlen */
-.site-content {
-    margin-bottom: 40px;
+.post {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px gray;
+}
+
+.post-2 {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px gray;
+}
+
+.entry-title a {
+    color: #333;
+    text-decoration: none;
+}
+
+.entry-content {
+    margin-top: 10px;
 }
 
 /* Footerstijlen */
-.site-footer {
-    background-color: #f8f8f8;
-    padding: 20px;
+footer {
+    background-color: #EF9536;
+    color: #fff;
     text-align: center;
+    padding: 20px;
 }
 
-.site-footer a {
-    color: #333333;
+.footer-link {
+    color: #fff;
     text-decoration: none;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
 }
