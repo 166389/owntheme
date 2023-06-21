@@ -17,7 +17,7 @@
 <body>
     <header>
         <!-- De onderstaande regel code gebruikt de WordPress-functie  -->
-        <h1><a href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a></h1>
+        <div class="title"><h1><a href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a></h1></div>
         <nav>
 
             <!-- De onderstaande regel code gebruikt de WordPress-functie  -->
